@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dn73gbyxt7rr2"]
+
+[ext_resource type="Script" uid="uid://ckjt40vbiau8e" path="res://Scripts/player.gd" id="1_player"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.45
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_player"]
+albedo_color = Color(0.22, 0.55, 0.95, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_player"]
+radius = 0.45
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=986067907]
+script = ExtResource("1_player")
+move_speed = 10.0
+sprint_speed = 25.0
+deceleration = 30.0
+gravity_multiplier = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=319824144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=404656663]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals" unique_id=984740352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_player")
+mesh = SubResource("CapsuleMesh_player")
+
+[node name="ForwardMarker" type="MeshInstance3D" parent="Visuals" unique_id=1442655743]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.15, 0.48)
+material_override = SubResource("StandardMaterial3D_player")
+mesh = SubResource("CapsuleMesh_player")
+
+[node name="CameraYaw" type="Node3D" parent="." unique_id=1545015563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CameraPitch" type="Node3D" parent="CameraYaw" unique_id=1582678091]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364825, 0, -0.17364825, 0.9848077, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraYaw/CameraPitch" unique_id=2140320539]
+spring_length = 5.0
+margin = 0.15
+
+[node name="Camera3D" type="Camera3D" parent="CameraYaw/CameraPitch/SpringArm3D" unique_id=916274417]
+current = true
