@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://ch1lnflroev5f"]
+
+[ext_resource type="FontFile" uid="uid://erb23difplej" path="res://Assets/fonts/EB Garamond/EBGaramond-Bold.ttf" id="1_u0sud"]
+
+[resource]
+Button/colors/font_color = Color(0.84705883, 0.84705883, 0.26666668, 1)
+Button/colors/font_hover_color = Color(0.9458795, 0.9539177, 0.6650894, 1)
+Button/fonts/font = ExtResource("1_u0sud")
