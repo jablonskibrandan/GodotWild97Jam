@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxtn2dlcsr21v"]
 
 [ext_resource type="PackedScene" uid="uid://dn73gbyxt7rr2" path="res://Scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://lcr8dcjguajx" path="res://Scenes/ingame_interface.tscn" id="2_bo1nx"]
 
 [sub_resource type="Environment" id="Environment_main"]
 background_mode = 1
@@ -40,3 +41,8 @@ mesh = SubResource("BoxMesh_floor")
 
 [node name="Player" parent="." unique_id=1405104297 instance=ExtResource("1_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1598553546]
+layer = 110
+
+[node name="IngameInterface" parent="CanvasLayer" unique_id=1195966056 instance=ExtResource("2_bo1nx")]

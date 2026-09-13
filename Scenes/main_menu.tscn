@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://b0hgaxhffral8"]
+
+[ext_resource type="Script" uid="uid://btigtodxumrrb" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://b68hbbbepc02s" path="res://Assets/images/PLACERHOLDER_main_menu_background.png" id="1_48xlc"]
+[ext_resource type="Theme" uid="uid://ch1lnflroev5f" path="res://Assets/themes/main_menu.tres" id="2_1ehe0"]
+
+[node name="MainMenu" type="Node2D" unique_id=675194907]
+script = ExtResource("1_1ehe0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1020730628]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_48xlc")
+
+[node name="Title" type="Label" parent="TextureRect" unique_id=711624128]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_font_sizes/font_size = 128
+text = "[Game Name Here]"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect" unique_id=1215699939]
+layout_mode = 0
+offset_top = 500.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Buttons" type="VBoxContainer" parent="TextureRect/CenterContainer" unique_id=2097811403]
+layout_mode = 2
+theme = ExtResource("2_1ehe0")
+theme_override_constants/separation = 19
+
+[node name="Play" type="Button" parent="TextureRect/CenterContainer/Buttons" unique_id=1775822673]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "PLAY"
+
+[node name="Options" type="Button" parent="TextureRect/CenterContainer/Buttons" unique_id=1794305413]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "OPTIONS"
+
+[node name="Exit" type="Button" parent="TextureRect/CenterContainer/Buttons" unique_id=1652062803]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "EXIT
+"
+
+[connection signal="pressed" from="TextureRect/CenterContainer/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="TextureRect/CenterContainer/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="TextureRect/CenterContainer/Buttons/Exit" to="." method="_on_exit_pressed"]
